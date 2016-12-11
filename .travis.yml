@@ -1,23 +1,24 @@
----
 language: node_js
 node_js:
-  - "0.12"
-
+- '0.12'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
-
+- export PATH=/usr/local/phantomjs-2.0.0/bin:$PATH
+- npm config set spin false
+- npm install -g npm@^2
 install:
-  - npm install -g bower
-  - npm install
-  - bower install
-
+- npm install -g bower
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: W20O8t4RgkbLm4DzR+jUWf1Am0Y8pv7+6a/X6X/YvIuWTtFrsVCnTBRRtw/2faSi0fWHxSTGcK7rNPgv2o9TIxVERhZs9TwP0PI0p5zAU0lYnRsvTFeaS7v2cLtRK3CJhPEv4u08Rr/kxON7uh5yYpj2EwQ3rt7nruhEjipsEgyzEnFUPPSwzd1tvHziusfR+inLts3Ug+4iifSjKZz89KyE8lSyrOsBZbmZuvtMM27jSb7XyEpawid9gDJsKwIn9j5lZNpzrKK1QBxTdQnLR7DxefPEpTFJMuNn+lO7euj+H4eVpFe8k5KLguhND1tQNM8prpHXyxsDNdgrlDKtF5SXX8EmRf3x/1oFqr70t+BtP905XfM6dggwMUbTyaTsNuDLvtz0Tc2MdDRpcF7ajaCWP1L9wE4GhgaLH4dOtDSJETSok0xEB1ANlWz8WsFI95MO40VH5x21cddK3TdqrpWO+lcCfsvpyZzka7TE4cpvs1Qq0E1fx0dPJRp6CpqUpBshOe3qO+f3kbzjUQBZw5T1VmBhNdPG0AzaFOHVIktbqXlbVL/rA3LpxS9kQ24aM4Bhf0+RAkCNFSaH+S7XGr32J4mi2/FV5HwRuLfmzlrDrmVvAWuxxUEz2lgjkcB/sqZfu/JLwJUURtC1xrnKywv3anGjMEMhL152G7opJNY=
+  app: amazing-chat
+  on:
+    repo: antonbavykin1991/ember-chat
