@@ -13,8 +13,6 @@ install:
 - npm install -g bower
 - npm install
 - bower install
-script:
-- npm test
 deploy:
   provider: heroku
   api_key:
